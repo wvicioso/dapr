@@ -1,0 +1,3 @@
+rootProject.name = 'Dapr'
+
+include ':app'
