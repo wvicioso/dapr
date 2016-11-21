@@ -54,7 +54,7 @@ export default class Welcome extends Component {
     return (
 
       <View style={{flex: 1, flexDirection: 'column'}}>
-        <View style={{ paddingTop: 12, alignItems: 'center', justifyContent: 'center', height: 70, backgroundColor: '#80cbc4'}}>
+        <View style={{ paddingTop: 12, alignItems: 'center', justifyContent: 'center', height: 70, backgroundColor: '#004d40'}}>
           <Text style={{fontSize: 45, fontWeight: '100', color: 'white'}}>
             DAPR
           </Text>
@@ -62,8 +62,8 @@ export default class Welcome extends Component {
 
         <View style={{flex: 1, flexDirection: 'row' }}>
           <TouchableOpacity>
-            <View style={{flex: 1, width: 80, alignItems: 'center', justifyContent: 'space-around', backgroundColor: '#e0f2f1'}}>
-              <Text style={{flex: 2, fontWeight: '300', color: '#004d40', fontSize: 50}}>
+            <View style={{flex: 1, width: 80, alignItems: 'center', justifyContent: 'space-around', backgroundColor: 'transparent'}}>
+              <Text style={{flex: 2, fontWeight: '300', color: '#4db6ac', fontSize: 50}}>
                 55°
               </Text>
               <Text style={{flex: 1, fontWeight: '300', color: '#004d40', fontSize: 18}}>
@@ -72,29 +72,28 @@ export default class Welcome extends Component {
               <Text style={{paddingBottom: 50, flex: 1, fontWeight: '300', color: '#004d40', fontSize: 18}}>
                 Low-54°
               </Text>
-              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '300', color: '#004d40', fontSize: 18}}>
+              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '300', color: '#4db6ac', fontSize: 18}}>
                 M
               </Text>
-              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '300', color: '#004d40', fontSize: 18}}>
+              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '300', color: '#4db6ac', fontSize: 18}}>
                 O
               </Text>
-              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '300', color: '#004d40', fontSize: 18}}>
+              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '300', color: '#4db6ac', fontSize: 18}}>
                 N
               </Text>
-              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '300', color: '#004d40', fontSize: 18}}>
+              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '300', color: '#4db6ac', fontSize: 18}}>
                 D
               </Text>
-              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '300', color: '#004d40', fontSize: 18}}>
+              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '300', color: '#4db6ac', fontSize: 18}}>
                 A
               </Text>
-              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '300', color: '#004d40', fontSize: 18}}>
+              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '300', color: '#4db6ac', fontSize: 18}}>
                 Y
               </Text>
             </View>
           </TouchableOpacity>
 
-          <View style={{borderWidth: 2, borderColor: '#80cbc4'}}>
-          </View>
+
 
           <View style={{flex: 1}}>
             <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', height: 50}}>
@@ -129,12 +128,11 @@ export default class Welcome extends Component {
             </Carousel>
           </View>
         </View>
-        <View style={{borderWidth: 2, borderColor: '#80cbc4'}}>
-        </View>
-        <View style={{alignItems: 'center',  flexDirection: 'row', height: 60, backgroundColor: '#e0e0e0'}}>
+
+        <View style={{alignItems: 'center',  flexDirection: 'row', height: 60, backgroundColor: '#004d40'}}>
 
           <TouchableOpacity>
-            <View style={{flexDirection: 'column', backgroundColor: '#e0e0e0', height: 60, width: 53.7, justifyContent: 'center', alignItems: 'center'}}>
+            <View style={{flexDirection: 'column', backgroundColor: '#004d40', height: 60, width: 53.7, justifyContent: 'center', alignItems: 'center'}}>
               <Text style={{fontSize: 17, color: 'white'}}>
                 M
               </Text>
@@ -144,7 +142,7 @@ export default class Welcome extends Component {
             </View>
           </TouchableOpacity>
           <TouchableOpacity>
-            <View style={{flexDirection: 'column', backgroundColor: '#d6d6d6', height: 60, width: 53.7, justifyContent: 'center', alignItems: 'center'}}>
+            <View style={{flexDirection: 'column', backgroundColor: '#00695c', height: 60, width: 53.7, justifyContent: 'center', alignItems: 'center'}}>
               <Text style={{fontSize: 17, color: 'white'}}>
                 T
               </Text>
@@ -154,7 +152,7 @@ export default class Welcome extends Component {
             </View>
           </TouchableOpacity>
           <TouchableOpacity>
-            <View style={{flexDirection: 'column', backgroundColor: '#e0e0e0', height: 60, width: 53.7, justifyContent: 'center', alignItems: 'center'}}>
+            <View style={{flexDirection: 'column', backgroundColor: '#004d40', height: 60, width: 53.7, justifyContent: 'center', alignItems: 'center'}}>
               <Text style={{fontSize: 17, color: 'white'}}>
                 W
               </Text>
@@ -165,7 +163,7 @@ export default class Welcome extends Component {
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <View style={{flexDirection: 'column', backgroundColor: '#d6d6d6', height: 60, width: 53.7, justifyContent: 'center', alignItems: 'center'}}>
+            <View style={{flexDirection: 'column', backgroundColor: '#00695c', height: 60, width: 53.7, justifyContent: 'center', alignItems: 'center'}}>
               <Text style={{fontSize: 17, color: 'white'}}>
                 Th
               </Text>
@@ -176,7 +174,7 @@ export default class Welcome extends Component {
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <View style={{flexDirection: 'column', backgroundColor: '#e0e0e0', height: 60, width: 53.7, justifyContent: 'center', alignItems: 'center'}}>
+            <View style={{flexDirection: 'column', backgroundColor: '#004d40', height: 60, width: 53.7, justifyContent: 'center', alignItems: 'center'}}>
               <Text style={{fontSize: 17, color: 'white'}}>
                 F
               </Text>
@@ -187,7 +185,7 @@ export default class Welcome extends Component {
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <View style={{flexDirection: 'column', backgroundColor: '#d6d6d6', height: 60, width: 53.7, justifyContent: 'center', alignItems: 'center'}}>
+            <View style={{flexDirection: 'column', backgroundColor: '#00695c', height: 60, width: 53.7, justifyContent: 'center', alignItems: 'center'}}>
               <Text style={{fontSize: 17, color: 'white'}}>
                 S
               </Text>
@@ -198,7 +196,7 @@ export default class Welcome extends Component {
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <View style={{flexDirection: 'column', backgroundColor: '#e0e0e0', height: 60, width: 53.7, justifyContent: 'center', alignItems: 'center'}}>
+            <View style={{flexDirection: 'column', backgroundColor: '#004d40', height: 60, width: 53.7, justifyContent: 'center', alignItems: 'center'}}>
               <Text style={{fontSize: 17, color: 'white'}}>
                 Su
               </Text>
