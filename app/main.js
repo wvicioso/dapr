@@ -21,7 +21,8 @@ export default class Welcome extends Component {
       dataSource: ds.cloneWithRows([]),
       temp: '',
       cond: '',
-      city: 'NY'
+      city: 'NY',
+      wind: ''
     }
   }
   navigate(routeName) {
@@ -32,20 +33,26 @@ export default class Welcome extends Component {
 
   componentWillMount() {
 
-    fetch("http://api.wunderground.com/api/ae341c3c3cc0ff78/geolookup/conditions/q/NY/New_York.json", {
-      method: 'POST',
+    
+
+    fetch("http://api.wunderground.com/api/ae341c3c3cc0ff78/geolookup/conditions/q/NY/New_York_City.json", {
+      method: 'get'
     })
     .then((response) => response.json())
     .then((responseJson) => {
       console.log(responseJson);
       if (responseJson !== null) {
+        debugger
         this.setState({
-          temp: responseJson.current_observastion.temp_f,
-          cond: responseJson.current_observastion.weather,
+          temp: responseJson.temp_f,
+          cond: responseJson.weather,
+          wind: responseJson.wind_mph,
+
         })
       }
     })
     .catch((error) => {
+      debugger
       throw new Error(error)
     })
   }
@@ -64,7 +71,7 @@ export default class Welcome extends Component {
           <TouchableOpacity>
             <View style={{flex: 1, width: 80, alignItems: 'center', justifyContent: 'space-around', backgroundColor: 'transparent'}}>
               <Text style={{flex: 2, fontWeight: '300', color: '#4db6ac', fontSize: 50}}>
-                55°
+                {this.state.temp}°
               </Text>
               <Text style={{flex: 1, fontWeight: '300', color: '#004d40', fontSize: 18}}>
                 High-62°
