@@ -21,8 +21,9 @@ export default class Welcome extends Component {
       dataSource: ds.cloneWithRows([]),
       temp: '',
       cond: '',
-      city: 'NY',
-      wind: ''
+      city: '',
+      wind: '',
+      icon: ''
     }
   }
   navigate(routeName) {
@@ -31,9 +32,9 @@ export default class Welcome extends Component {
     })
   }
 
-  componentWillMount() {
+  componentDidMount() {
 
-    
+
 
     fetch("http://api.wunderground.com/api/ae341c3c3cc0ff78/geolookup/conditions/q/NY/New_York_City.json", {
       method: 'get'
@@ -42,13 +43,16 @@ export default class Welcome extends Component {
     .then((responseJson) => {
       console.log(responseJson);
       if (responseJson !== null) {
-        debugger
         this.setState({
-          temp: responseJson.temp_f,
-          cond: responseJson.weather,
-          wind: responseJson.wind_mph,
+          temp: responseJson.current_observation.temp_f,
+          cond: responseJson.current_observation.weather,
+          wind: responseJson.current_observation.wind_mph,
+          city: responseJson.location.city,
+          icon: responseJson.current_observation.icon_url,
+
 
         })
+        console.log(this.state.icon)
       }
     })
     .catch((error) => {
@@ -69,16 +73,15 @@ export default class Welcome extends Component {
 
         <View style={{flex: 1, flexDirection: 'row' }}>
           <TouchableOpacity>
-            <View style={{flex: 1, width: 80, alignItems: 'center', justifyContent: 'space-around', backgroundColor: 'transparent'}}>
-              <Text style={{flex: 2, fontWeight: '300', color: '#4db6ac', fontSize: 50}}>
-                {this.state.temp}°
+            <View style={{flex: 1, width: 80, alignItems: 'center', justifyContent: 'space-around', backgroundColor: '#e0f2f1'}}>
+              <Text style={{flex: 2, fontWeight: '300', color: '#4db6ac', fontSize: 50, alignItems: 'center', justifyContent: 'center'}}>
+                {Math.floor(this.state.temp)}°
               </Text>
-              <Text style={{flex: 1, fontWeight: '300', color: '#004d40', fontSize: 18}}>
-                High-62°
-              </Text>
-              <Text style={{paddingBottom: 50, flex: 1, fontWeight: '300', color: '#004d40', fontSize: 18}}>
-                Low-54°
-              </Text>
+              <Image
+                style={{width:40, height: 40, resizeMode: 'contain'}}
+                source={{uri: this.state.icon }}
+              />
+
               <Text style={{flex: 2, flexDirection: 'column', fontWeight: '300', color: '#4db6ac', fontSize: 18}}>
                 M
               </Text>
@@ -103,33 +106,63 @@ export default class Welcome extends Component {
 
 
           <View style={{flex: 1}}>
-            <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', height: 50}}>
-            <Text style={{  fontWeight: '100', color: '#004d40', fontSize: 20}}>
-              Partly Cloudy
-            </Text>
-              <Text style={{fontWeight: '100', letterSpacing: 3, textAlign: 'right', backgroundColor: 'transparent', color: '#004d40', fontSize: 20}}>
-                NYC
-              </Text>
+            <View style={{zIndex: 1, position: 'absolute', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', height: 50}}>
+            <TouchableOpacity>
+                <View style={{opacity: .7,borderRadius: 5, borderWidth: 2, borderColor: '#004d40', backgroundColor: '#00695c'}}>
+                  <Text style={{ textAlign: 'center', fontWeight: '400', color: 'white', fontSize: 15, backgroundColor: 'transparent'}}>
+                    {this.state.cond}
+                  </Text>
+                </View>
+              </TouchableOpacity>
+
+              <TouchableOpacity>
+                <View style={{opacity: .7, left: 136, borderRadius: 5, borderWidth: 2, borderColor: '#004d40', backgroundColor: '#00695c'}}>
+                  <Text style={{ opacity: 1, fontWeight: '400', letterSpacing: 3, textAlign: 'center', backgroundColor: 'transparent', color: 'white', fontSize: 15}}>
+                    {this.state.city}
+                  </Text>
+                </View>
+              </TouchableOpacity>
             </View>
-            <Carousel paddingRight={0} paddingLeft={0} inactiveIndicatorColor="#80cbc4" indicatorColor="#004d40" indicatorSize={25} indicatorOffset={450} indicatorAtBottom={false} width={250} backgroundColor='blue' animate={false}>
+            <Carousel paddingRight={0} paddingLeft={0} marginLeft={0} marginRight={0} inactiveIndicatorColor="#80cbc4" indicatorColor="#004d40" indicatorSize={25} hideIndicators={true} indicatorOffset={450} indicatorAtBottom={false} width={250} backgroundColor='blue' animate={false}>
+            <View>
+              <TouchableOpacity>
+                <Image style={{width:280, height: 537, resizeMode: 'stretch'}} source={require('../images/third_outfit.jpg')} />
+              </TouchableOpacity>
+            </View>
+            <View>
+              <TouchableOpacity>
+                <Image style={{width:280, height: 537, resizeMode: 'stretch'}} source={require('../images/eleventh_outfit.jpg')} />
+              </TouchableOpacity>
+            </View>
+            <View>
+              <TouchableOpacity>
+                <Image style={{width:280, height: 537, resizeMode: 'stretch'}} source={require('../images/seventh_outfit.jpg')} />
+              </TouchableOpacity>
+            </View>
+            <View>
+              <TouchableOpacity>
+                <Image style={{width:280, height: 537, resizeMode: 'stretch'}} source={require('../images/next3.png')} />
+              </TouchableOpacity>
+            </View>
+             
               <View>
                 <TouchableOpacity>
-                  <Image style={{width:250, height: 425, resizeMode: 'contain'}} source={require('../images/third_outfit.jpg')} />
+                  <Image style={{width:280, height: 537, resizeMode: 'stretch'}} source={require('../images/eigth_outfit.jpg')} />
                 </TouchableOpacity>
               </View>
               <View>
                 <TouchableOpacity>
-                  <Image style={{width:250, height: 425, resizeMode: 'contain'}} source={require('../images/second_outfit.jpg')} />
+                  <Image style={{width:280, height: 537, resizeMode: 'stretch'}} source={require('../images/second_outfit.jpg')} />
                 </TouchableOpacity>
               </View>
               <View>
                 <TouchableOpacity>
-                  <Image style={{width:250, height: 425, resizeMode: 'contain'}} source={require('../images/sixth_outfit.jpg')} />
+                  <Image style={{width:280, height: 537, resizeMode: 'stretch'}} source={require('../images/sixth_outfit.jpg')} />
                 </TouchableOpacity>
               </View>
               <View>
                 <TouchableOpacity>
-                  <Image style={{width:250, height: 425, resizeMode: 'contain'}} source={require('../images/fourth_outfit.jpg')} />
+                  <Image style={{width:280, height: 537, resizeMode: 'stretch'}} source={require('../images/fourth_outfit.jpg')} />
                 </TouchableOpacity>
               </View>
             </Carousel>
