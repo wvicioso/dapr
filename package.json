@@ -9,7 +9,8 @@
   "dependencies": {
     "react": "15.3.2",
     "react-native": "0.37.0",
-    "react-native-carousel": "^0.10.0"
+    "react-native-carousel": "^0.10.0",
+    "react-native-side-menu": "^0.20.1"
   },
   "jest": {
     "preset": "jest-react-native"
