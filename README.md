@@ -5,4 +5,4 @@ clothing suggestion weather app
 ![](/images/ss1.jpg)
 
 <img src="/images/ss2.jpg" alt="alt text" >
-<img src="/images/ss1.jpg" alt="alt text" width="900" height="1700">
+<img src="/images/ss1.jpg" alt="alt text" width="800" height="1600">
