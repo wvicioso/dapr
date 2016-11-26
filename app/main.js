@@ -73,47 +73,51 @@ setWeather(temp, cond, icon){
     return (
 
       <View style={{paddingTop: 20, flex: 1, flexDirection: 'column'}}>
-
+      <View style={{flexDirection: 'row', paddingTop: 12, alignItems: 'center', justifyContent: 'center', height: 70, backgroundColor: 'black'}}>
+        <Text style={{ right: 84, fontWeight: '100', color: '#9e9e9e', fontSize: 40, alignItems: 'center', justifyContent: 'center', backgroundColor: 'black'}}>
+          {Math.floor(this.state.temp[0])}°
+        </Text>
+        <Text style={{fontSize: 45, fontWeight: '100', color: '#9e9e9e'}}>
+          DAPR
+        </Text>
+      </View>
         <View style={{flex: 1, flexDirection: 'row' }}>
           <TouchableOpacity>
             <View style={{ flex: 1, width: 80, alignItems: 'center', justifyContent: 'space-around', backgroundColor: 'black'}}>
-              <Text style={{flex: 2, fontWeight: '100', color: '#9e9e9e', fontSize: 50, alignItems: 'center', justifyContent: 'center'}}>
-                {Math.floor(this.state.temp[0])}°
-              </Text>
+
               <Image
                 style={{width:40, height: 40, resizeMode: 'contain'}}
                 source={{uri: this.state.icon }}
               />
 
-              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: '#9e9e9e', fontSize: 18}}>
+
+
+              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: 'white', fontSize: 18}}>
                 M
               </Text>
-              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: '#9e9e9e', fontSize: 18}}>
+              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: 'white', fontSize: 18}}>
                 O
               </Text>
-              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: '#9e9e9e', fontSize: 18}}>
+              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: 'white', fontSize: 18}}>
                 N
               </Text>
-              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: '#9e9e9e', fontSize: 18}}>
+              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: 'white', fontSize: 18}}>
                 D
               </Text>
-              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: '#9e9e9e', fontSize: 18}}>
+              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: 'white', fontSize: 18}}>
                 A
               </Text>
-              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: '#9e9e9e', fontSize: 18}}>
+              <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: 'white', fontSize: 18}}>
                 Y
               </Text>
+
             </View>
+
           </TouchableOpacity>
 
 
 
           <View style={{flex: 1}}>
-            <View style={{ paddingTop: 12, alignItems: 'center', justifyContent: 'center', height: 70, backgroundColor: 'black'}}>
-              <Text style={{fontSize: 45, fontWeight: '100', color: '#9e9e9e'}}>
-                DAPR
-              </Text>
-            </View>
             <View style={{zIndex: 1, position: 'absolute', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', height: 50}}>
               <TouchableOpacity>
                 <View style={{opacity: .7,borderRadius: 5, borderWidth: 2, borderColor: 'black', backgroundColor: 'black'}}>
