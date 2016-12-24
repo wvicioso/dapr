@@ -140,7 +140,7 @@ setWeather(temp, cond, icon){
             <Carousel paddingRight={0} paddingLeft={0} marginLeft={0} marginRight={0} inactiveIndicatorColor="#80cbc4" indicatorColor="#004d40" indicatorSize={25} hideIndicators={true} indicatorOffset={450} indicatorAtBottom={false} width={250} backgroundColor='blue' animate={false}>
               <View>
                 <TouchableOpacity>
-                  <Image style={{width:280, height: 537, resizeMode: 'stretch'}} source={require('../images/third_outfit.jpg')} />
+                  <Image style={{width:280, height: 537, resizeMode: 'stretch'}} source={require('../images/eigth_outfit.jpg')} />
                 </TouchableOpacity>
               </View>
               <View>
@@ -161,7 +161,7 @@ setWeather(temp, cond, icon){
 
               <View>
                 <TouchableOpacity>
-                  <Image style={{width:280, height: 537, resizeMode: 'stretch'}} source={require('../images/eigth_outfit.jpg')} />
+                  <Image style={{width:280, height: 537, resizeMode: 'stretch'}} source={require('../images/third_outfit.jpg')} />
                 </TouchableOpacity>
               </View>
               <View>
@@ -314,7 +314,7 @@ export default class Application extends React.Component {
   render() {
     const menu = <View style={{ paddingTop: 20,flexDirection: 'column' }}>
                     <Text style={{ paddingTop: 12, fontSize: 30, fontWeight: '100', textAlign: 'center', height: 82, backgroundColor: 'black', color: 'white'}}>{this.state.city}</Text>
-                    <Text style={{ fontSize: 20, fontWeight: '100', textAlign: 'center', height: 82, backgroundColor: 'black', color: 'white'}}>{this.state.cond}</Text>
+                    <Text style={{ fontSize: 17, fontWeight: '100', textAlign: 'center', height: 82, backgroundColor: 'black', color: 'white'}}>{this.state.cond}</Text>
                     <Text style={{ fontSize: 20, fontWeight: '100', textAlign: 'center', height: 82, backgroundColor: 'black', color: 'white'}}>chance of rain: {this.state.rain}% </Text>
                     <Text style={{ fontSize: 20, fontWeight: '100', textAlign: 'center', height: 82, backgroundColor: 'black', color: 'white'}}>high: {this.state.high}°</Text>
                     <Text style={{ fontSize: 20, fontWeight: '100', textAlign: 'center', height: 82, backgroundColor: 'black', color: 'white'}}>low: {this.state.low}°</Text>
