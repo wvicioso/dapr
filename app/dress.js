@@ -14,7 +14,7 @@ import {
 const Carousel = require('react-native-carousel');
 const SideMenu = require('react-native-side-menu');
 
-export default class Weather extends Component {
+export default class Dress extends Component {
   constructor() {
     super();
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -34,9 +34,6 @@ export default class Weather extends Component {
   }
 
   componentDidMount() {
-
-
-
     fetch("http://ap.wunderground.com/api/ae341c3c3cc0ff78/geolookup/conditions/q/NY/New_York_City.json", {
       method: 'get'
     })
@@ -50,8 +47,6 @@ export default class Weather extends Component {
           wind: responseJson.current_observation.wind_mph,
           city: responseJson.location.city,
           icon: responseJson.current_observation.icon_url,
-
-
         })
         console.log(this.state.icon)
       }
@@ -64,11 +59,14 @@ export default class Weather extends Component {
 
   render() {
     return (
-        <View style={{}}>
-          <Text>
-            hello
-          </Text>
-        </View>
+      <Carousel style={{}} hideIndicators={true} animate={false}>
+            <Image style={{ width: 375, height: 647, resizeMode: 'stretch'}} source={require('../images/eigth_outfit.jpg')} />
+            <Image style={{ width: 375, height: 647, resizeMode: 'stretch'}} source={require('../images/eleventh_outfit.jpg')} />
+            <Image style={{ width: 375, height: 647, resizeMode: 'stretch'}} source={require('../images/eigth_outfit.jpg')} />
+            <Image style={{ width: 375, height: 647, resizeMode: 'stretch'}} source={require('../images/eleventh_outfit.jpg')} />
+            <Image style={{ width: 375, height: 647, resizeMode: 'stretch'}} source={require('../images/eigth_outfit.jpg')} />
+            <Image style={{ width: 375, height: 647, resizeMode: 'stretch'}} source={require('../images/eleventh_outfit.jpg')} />
+      </Carousel>
     );
   }
 }

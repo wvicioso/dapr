@@ -14,7 +14,7 @@ import {
 const Carousel = require('react-native-carousel');
 const SideMenu = require('react-native-side-menu');
 
-export default class Weather extends Component {
+export default class Day extends Component {
   constructor() {
     super();
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -34,9 +34,6 @@ export default class Weather extends Component {
   }
 
   componentDidMount() {
-
-
-
     fetch("http://ap.wunderground.com/api/ae341c3c3cc0ff78/geolookup/conditions/q/NY/New_York_City.json", {
       method: 'get'
     })
@@ -50,8 +47,6 @@ export default class Weather extends Component {
           wind: responseJson.current_observation.wind_mph,
           city: responseJson.location.city,
           icon: responseJson.current_observation.icon_url,
-
-
         })
         console.log(this.state.icon)
       }
@@ -64,10 +59,32 @@ export default class Weather extends Component {
 
   render() {
     return (
-        <View style={{}}>
-          <Text>
-            hello
+        <View style={{ zIndex: 1, position: 'absolute', width: 80, height: 517, alignItems: 'center', justifyContent: 'space-around', backgroundColor: 'rgba(12,12,12, .3)', borderTopRightRadius: 50}}>
+
+          <Image
+            style={{width:40, height: 40, resizeMode: 'contain'}}
+            source={{uri: this.state.icon }}
+          />
+
+        <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: 'white', fontSize: 18}}>
+            M
           </Text>
+          <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: 'white', fontSize: 18}}>
+            O
+          </Text>
+          <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: 'white', fontSize: 18}}>
+            N
+          </Text>
+          <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: 'white', fontSize: 18}}>
+            D
+          </Text>
+          <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: 'white', fontSize: 18}}>
+            A
+          </Text>
+          <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: 'white', fontSize: 18}}>
+            Y
+          </Text>
+
         </View>
     );
   }
