@@ -59,14 +59,14 @@ export default class Dress extends Component {
 
   render() {
     return (
-      <Carousel style={{}} hideIndicators={true} animate={false}>
-            <Image style={{ width: 375, height: 647, resizeMode: 'stretch'}} source={require('../images/eigth_outfit.jpg')} />
-            <Image style={{ width: 375, height: 647, resizeMode: 'stretch'}} source={require('../images/eleventh_outfit.jpg')} />
-            <Image style={{ width: 375, height: 647, resizeMode: 'stretch'}} source={require('../images/eigth_outfit.jpg')} />
-            <Image style={{ width: 375, height: 647, resizeMode: 'stretch'}} source={require('../images/eleventh_outfit.jpg')} />
-            <Image style={{ width: 375, height: 647, resizeMode: 'stretch'}} source={require('../images/eigth_outfit.jpg')} />
-            <Image style={{ width: 375, height: 647, resizeMode: 'stretch'}} source={require('../images/eleventh_outfit.jpg')} />
-      </Carousel>
+        <Carousel hideIndicators={true} animate={false}>
+              <Image style={{ width: 375, height: 647, resizeMode: 'stretch'}} source={require('../images/next4.jpg')} />
+              <Image style={{ width: 375, height: 647, resizeMode: 'stretch'}} source={require('../images/eleventh_outfit.jpg')} />
+              <Image style={{ width: 375, height: 647, resizeMode: 'stretch'}} source={require('../images/fifth_outfit.jpg')} />
+              <Image style={{ width: 375, height: 647, resizeMode: 'stretch'}} source={require('../images/seventh_outfit.jpg')} />
+              <Image style={{ width: 375, height: 647, resizeMode: 'stretch'}} source={require('../images/fourteenth_outfit.jpg')} />
+              <Image style={{ width: 375, height: 647, resizeMode: 'stretch'}} source={require('../images/eigth_outfit.jpg')} />
+        </Carousel>
     );
   }
 }

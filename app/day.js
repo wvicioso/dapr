@@ -8,23 +8,29 @@ import {
   TouchableOpacity,
   View,
   Image,
-  ListView
+  ListView,
+  LayoutAnimation
 } from 'react-native';
 
 const Carousel = require('react-native-carousel');
 const SideMenu = require('react-native-side-menu');
+import Dress from './dress';
+import OverlayInfo from './overlay_info';
+import WeekForcast from './weekForcast';
 
-export default class Day extends Component {
-  constructor() {
-    super();
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+export default class Day extends React.Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      dataSource: ds.cloneWithRows([]),
-      temp: '',
-      cond: '',
-      city: '',
-      wind: '',
-      icon: ''
+
+        day: props.day,
+        offset: props.offset,
+        width: props.width,
+        height: props.height,
+        borderRadius: props.borderRadius,
+        font: props.font,
+        top: props.top,
+        padding: props.padding,
     }
   }
   navigate(routeName) {
@@ -33,59 +39,77 @@ export default class Day extends Component {
     })
   }
 
+  componentWillMount() {
+    // Animate creation
+    LayoutAnimation.linear();
+  }
+
   componentDidMount() {
-    fetch("http://ap.wunderground.com/api/ae341c3c3cc0ff78/geolookup/conditions/q/NY/New_York_City.json", {
-      method: 'get'
-    })
-    .then((response) => response.json())
-    .then((responseJson) => {
-      console.log(responseJson);
-      if (responseJson !== null) {
-        this.setState({
-          temp: responseJson.current_observation.temp_f,
-          cond: responseJson.current_observation.weather,
-          wind: responseJson.current_observation.wind_mph,
-          city: responseJson.location.city,
-          icon: responseJson.current_observation.icon_url,
-        })
-        console.log(this.state.icon)
-      }
-    })
-    .catch((error) => {
-      debugger
-      throw new Error(error)
+
+  }
+
+  handleDay() {
+    var offsetDays = {
+      "MON": 290,
+      "TUE": 241.77,
+      "WED": 193.44,
+      "THU": 145.11,
+      "FRI": 96.78,
+      "SAT": 48.45,
+      "SUN": .12
+    }
+    LayoutAnimation.linear();
+    if (this.state.offset == 10) {
+      this.setState({
+          offset: offsetDays[this.state.day],
+      })
+    }
+
+    if (this.state.width == 1430) {
+      this.setState({
+          offset: offsetDays[this.state.day],
+          width: 80,
+          height: 80,
+          borderRadius: 40,
+          font: 27,
+          top: 30,
+          padding: 25,
+      })
+    }
+
+  }
+
+  daysAppear(){
+    LayoutAnimation.spring();
+    this.setState({
+      daysOpac: .01,
     })
   }
 
+
   render() {
     return (
-        <View style={{ zIndex: 1, position: 'absolute', width: 80, height: 517, alignItems: 'center', justifyContent: 'space-around', backgroundColor: 'rgba(12,12,12, .3)', borderTopRightRadius: 50}}>
+          <View style={{ alignItems: 'center', justifyContent: 'center', position: 'absolute', top: this.state.top, right: this.state.offset, opacity: 1}}>
 
-          <Image
-            style={{width:40, height: 40, resizeMode: 'contain'}}
-            source={{uri: this.state.icon }}
-          />
+            <Text style={{
+                borderWidth: 5,
+                borderColor: 'rgba(145,206,235,.5)',
+                backgroundColor: 'transparent',
+                overflow:'hidden',
+                textAlignVertical: 'center',
+                textAlign: 'center',
+                color: 'black',
+                height: this.state.height,
+                width: this.state.width,
+                borderRadius: this.state.borderRadius,
+                fontSize: this.state.font,
+                paddingTop: this.state.padding,
 
-        <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: 'white', fontSize: 18}}>
-            M
-          </Text>
-          <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: 'white', fontSize: 18}}>
-            O
-          </Text>
-          <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: 'white', fontSize: 18}}>
-            N
-          </Text>
-          <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: 'white', fontSize: 18}}>
-            D
-          </Text>
-          <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: 'white', fontSize: 18}}>
-            A
-          </Text>
-          <Text style={{flex: 2, flexDirection: 'column', fontWeight: '100', color: 'white', fontSize: 18}}>
-            Y
-          </Text>
+              }}>
+              {this.state.day}
+            </Text>
 
-        </View>
+          </View>
     );
   }
 }
