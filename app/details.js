@@ -91,7 +91,7 @@ setWeather(temp, cond, icon, city){
 
   handleDetails() {
     if (this.state.footerHeight == 115) {
-      LayoutAnimation.linear();
+      LayoutAnimation.easeInEaseOut();
       this.setState({
         footerHeight: 265,
         selectorHeight: 250,
